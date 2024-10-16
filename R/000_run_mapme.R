@@ -1,0 +1,5 @@
+library(mapme.biodiversity)
+library(mapme.pipelines)
+options(future.globals.maxSize = 1.0 * 1e9)
+readRenviron(".env")
+run_config("config.yaml")

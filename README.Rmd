@@ -1,0 +1,38 @@
+---
+title: "ACLED Conflict Indicators"
+author: "Darius A. Görgen"
+date: "2024-10-16"
+output: github_document
+---
+
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+
+# Introduction
+
+This repository contains the codes used to calculate local indicators of 
+conflict exposure. Conflict event data are taken from [ACLED](https://acleddata.com/)
+and indicators are calculated based on administrative units of level 2.
+Popluation data is based on [WorldPop](https://www.worldpop.org/).
+Project informations represents data internal to KfW. Since most of the used 
+data cannot be shared publicly, this repository only containes the code in order
+to reproduce the results. The conflict indicators, however, can be calculated
+using [`{mapme.biodiversity}`](https://mapme-initiative.github.io/mapme.biodiversity/reference/acled.html) 
+and a valid ACLED account with API access.
+
+As indicators of local conflict exposure we calculate:
+
+- total number of aggregated fatalities per unit and year
+- number of fatalities per 100,000 inhabitants per unit and year
+- total number of population exposed to certain types of events per unit and year
+- number of people exposed to these events per 100,000 inhabitants per unit and year
+
+based on the following configuration file which is used as input to 
+[`{mapme.pipelines}`](https://github.com/mapme-initiative/mapme.pipelines)
+
+```yaml
+`r xfun::file_string("config.yaml")`
+```
+
+
+
+

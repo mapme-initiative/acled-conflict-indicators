@@ -1,0 +1,8 @@
+.env
+*.html
+*.gpkg
+*.tif
+*.csv
+*.xlsx
+*.json
+.Rproj.user

@@ -1,0 +1,36 @@
+input: data/adm2_polygons.gpkg
+output: output/adm2_polygons_conflict_indicators.gpkg
+datadir: /home/rstudio/mapme/data
+batchsize: 5000
+options:
+  overwrite: true
+  maxcores: 10
+  progress: true
+  chunksize: NULL
+resources:
+  get_acled:
+    args:
+      years: [2019, 2020, 2021, 2022, 2023]
+      accept_terms: TRUE
+  get_worldpop:
+    args:
+      years: [2019]
+indicators:
+  calc_exposed_population_acled:
+    args:
+      distance: [5000, 2000, 5000, 3000]
+      years: [2019, 2020, 2021, 2022, 2023]
+      filter_category: event_type
+      filter_types: [battles, riots, explosions/remote_violence, violence_against_civilians]
+      precision_location: 1
+      precision_time: 1
+  calc_fatalities_acled:
+    args:
+      years: [2019, 2020, 2021, 2022, 2023]
+      stratum: event_type
+      precision_location: 1
+      precision_time: 1
+  calc_population_count:
+    args:
+      engine: exactextract
+      stats: sum
