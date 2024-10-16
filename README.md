@@ -69,3 +69,9 @@ indicators:
       engine: exactextract
       stats: sum
 ```
+
+To fetch ACLED data successfully, the code expects to find a file called
+`.env` in the top-level with the following valid content to be set:
+
+    ACLED_ACCESS_EMAIL=<your-email>
+    ACLED_ACCESS_KEY=<your-key>
